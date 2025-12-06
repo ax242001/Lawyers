@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALDP - Agreement Draft Intake Form</title>
+    <style>
+        /* Basic CSS for Professional Look */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #004d40; /* Dark Teal/Green */
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .fee-banner {
+            background-color: #e0f2f1;
+            color: #004d40;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="email"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+            font-size: 16px;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .disclaimer {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #ffcc80;
+            background-color: #fff3e0;
+            color: #e65100;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        button {
+            background-color: #004d40;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Automated Legal Draft Portal (ALDP) Intake Form</h1>
+        
+        <div class="fee-banner">
+            Agreement Generation Fee: **₦20,000 (Required before submission)**
+        </div>
+
+        <form id="agreementForm" action="/process_agreement_draft" method="POST">
+
+            <div class="form-group">
+                <label for="agreement_type">1. Select Agreement Type:</label>
+                <select id="agreement_type" name="agreement_type" required>
+                    <option value="">-- Choose an Agreement --</option>
+                    <option value="nda">Non-Disclosure Agreement (NDA)</option>
+                    <option value="employment">Employment Contract</option>
+                    <option value="lease">Residential Lease/Rental Agreement</option>
+                    <option value="service">Standard Service Agreement</option>
+                </select>
+            </div>
+            
+            <h2>Client Details (Party A)</h2>
+            <hr/>
+            <div class="form-group">
+                <label for="party_a_name">Full Name or Company Name (Party A):</label>
+                <input type="text" id="party_a_name" name="party_a_name" required>
+            </div>
+            <div class="form-group">
+                <label for="party_a_address">Nigerian Address (Party A):</label>
+                <input type="text" id="party_a_address" name="party_a_address" required>
+            </div>
+            <div class="form-group">
+                <label for="party_a_email">Email for Delivery & Receipt:</label>
+                <input type="email" id="party_a_email" name="party_a_email" required>
+            </div>
+
+            <h2>Counter-Party Details (Party B)</h2>
+            <hr/>
+            <div class="form-group">
+                <label for="party_b_name">Full Name or Company Name (Party B):</label>
+                <input type="text" id="party_b_name" name="party_b_name" required>
+            </div>
+            <div class="form-group">
+                <label for="party_b_address">Nigerian Address (Party B):</label>
+                <input type="text" id="party_b_address" name="party_b_address" required>
+            </div>
+
+            <h2>Agreement Specific Terms</h2>
+            <hr/>
+            <div class="form-group">
+                <label for="effective_date">Effective Date of Agreement:</label>
+                <input type="date" id="effective_date" name="effective_date" required>
+            </div>
+             <div class="form-group">
+                <label for="jurisdiction">Governing State Jurisdiction (e.g., Lagos State):</label>
+                <input type="text" id="jurisdiction" name="jurisdiction" value="Lagos State" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Brief Description of Purpose/Subject Matter (Max 200 words):</label>
+                <textarea id="description" name="description" maxlength="200" required></textarea>
+            </div>
+            
+            <button type="submit" id="submitButton">
+                Proceed to Secure Payment of ₦20,000
+            </button>
+            
+            <div class="disclaimer">
+                **IMPORTANT LEGAL NOTICE:** This automated service provides a document *draft* based on your input. It **does not constitute legal advice** or form an Attorney-Client relationship. Review by a qualified legal professional is strongly advised.
+            </div>
+
+        </form>
+    </div>
+    
+    </body>
+</html>
